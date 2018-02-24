@@ -7,10 +7,10 @@
    -fx-fill-width: true;
 }
 
-.grid-internals {
-    -fx-padding: 10px;
+.padding-5px {
+    -fx-padding: 5px;
 }
 
-.value-internals {
-    -fx-border-insets: 5px;
+.padding-10px {
+    -fx-padding: 10px;
 }
