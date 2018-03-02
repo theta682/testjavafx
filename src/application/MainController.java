@@ -6,26 +6,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
-import javafx.scene.text.Text;
 
 public class MainController implements Initializable {
+	private MainModel mainModel;
 
-	public enum EntityType {
-		NA("Not Applicable"),
-		Type1("Type 1");
-
-		private final String name;
-		private EntityType(String s) {
-			name = s;
-		}
-
-		public boolean equalsName(String otherName) {
-			return name.equals(otherName);
-		}
-
-		public String toString() {
-			return name;
-		}
+	public MainController() {
+		mainModel = new MainModel();
 	}
 
 	@FXML
@@ -35,23 +21,16 @@ public class MainController implements Initializable {
 	private ResourceBundle resources;
 
 	@FXML
-	private Text fileNewTarget;
+	private ComboBox<MainModel.EntityType> comboType;
 
 	@FXML
-	private ComboBox<EntityType> comboType;
-	public EntityType type;
-
-	@FXML
-	protected void handleMenuFileNew(ActionEvent event) {
-		fileNewTarget.setText("New was activated");
+	protected void selectType(ActionEvent event) {
+		mainModel.setType(comboType.getSelectionModel().getSelectedItem());
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		type = EntityType.NA;
-		comboType.getItems().addAll(
-			EntityType.NA,
-			EntityType.Type1);
-		comboType.getSelectionModel().select(EntityType.NA);
+		comboType.getItems().addAll(mainModel.getAll());
+		comboType.getSelectionModel().select(MainModel.EntityType.NA);
 	}
 }

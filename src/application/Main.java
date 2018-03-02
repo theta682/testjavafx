@@ -12,6 +12,7 @@ public class Main extends Application {
 		try {
 			primaryStage.setTitle("My JavaFX Application");
 			Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
+			//MainController mainController = (MainController)root.get
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
