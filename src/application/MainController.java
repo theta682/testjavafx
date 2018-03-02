@@ -8,12 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 
 public class MainController implements Initializable {
-	private MainModel mainModel;
-
-	public MainController() {
-		mainModel = new MainModel();
-	}
-
 	@FXML
 	private URL location;
 
@@ -30,7 +24,13 @@ public class MainController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+	}
+
+	public void initialize(MainModel model) {
+		mainModel = model;
 		comboType.getItems().addAll(mainModel.getAll());
 		comboType.getSelectionModel().select(MainModel.EntityType.NA);
 	}
+
+	private MainModel mainModel;
 }

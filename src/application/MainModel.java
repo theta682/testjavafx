@@ -21,6 +21,7 @@ public class MainModel {
 		public String toString() {
 			return name;
 		}
+
 		public static Collection<EntityType> getAll() {
 			Collection<EntityType> result = new ArrayList<EntityType>();
 			result.add(EntityType.NA);
@@ -44,7 +45,8 @@ public class MainModel {
 	}
 
 	public void setType(EntityType t) {
-		if (t != null)
+		if (t != null) {
 			type = t;
+		}
 	}
 }
