@@ -4,10 +4,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 
-public class MainController implements Initializable {
+public class MainController {
 	@FXML
 	private URL location;
 
@@ -22,8 +21,8 @@ public class MainController implements Initializable {
 		mainModel.setType(comboType.getSelectionModel().getSelectedItem());
 	}
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	@FXML
+	public void initialize() {
 	}
 
 	public void initialize(MainModel model) {
