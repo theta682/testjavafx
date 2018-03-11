@@ -29,11 +29,22 @@ public class Main extends Application {
 		scene = new Scene(root);
 	}
 
+	static Main instance;
 	private MainModel mainModel;
 	private Scene scene;
 
 	public Main() {
+		instance = this;
 		mainModel = new MainModel();
+		mainModel.loadUsername("test");
+	}
+
+	MainModel getModel() {
+		return mainModel;
+	}
+
+	Scene getScene() {
+		return scene;
 	}
 
 	public static void main(String[] args) {

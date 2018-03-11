@@ -21,14 +21,10 @@ public class MainController {
 		mainModel.setType(comboType.getSelectionModel().getSelectedItem());
 	}
 
-	@FXML
-	public void initialize() {
-	}
-
 	public void initialize(MainModel model) {
 		mainModel = model;
 		comboType.getItems().addAll(mainModel.getAll());
-		comboType.getSelectionModel().select(MainModel.EntityType.NA);
+		comboType.getSelectionModel().select(mainModel.getType());
 	}
 
 	private MainModel mainModel;
