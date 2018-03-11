@@ -21,6 +21,11 @@ public class MainController {
 		mainModel.setType(comboType.getSelectionModel().getSelectedItem());
 	}
 
+	@FXML
+	void onSubmit(ActionEvent event) {
+		mainModel.save();
+	}
+
 	public void initialize(MainModel model) {
 		mainModel = model;
 		comboType.getItems().addAll(mainModel.getAll());

@@ -107,8 +107,18 @@ public class MainModel {
 		}
 	}
 
-	public void save() {
-		// TODO: implement
+	public boolean save() {
+		try {
+			PreparedStatement statement = connection.prepareStatement("INSERT OR REPLACE INTO entities (username, type) VALUES(?, ?)");
+			statement.setString(1, getUsername());
+			statement.setInt(2, getType().getValue());
+			if (statement.execute())
+				return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	public Connection getConnection() {

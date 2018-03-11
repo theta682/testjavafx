@@ -70,7 +70,7 @@
       </TabPane>
       <BorderPane styleClass="padding-10px">
          <right>
-            <Button mnemonicParsing="false" text="Submit" BorderPane.alignment="CENTER" />
+            <Button mnemonicParsing="false" onAction="#onSubmit" text="Submit" BorderPane.alignment="CENTER" />
          </right>
       </BorderPane>
    </children>
