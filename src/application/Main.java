@@ -36,7 +36,7 @@ public class Main extends Application {
 	public Main() {
 		instance = this;
 		mainModel = new MainModel();
-		mainModel.loadUsername("test");
+		mainModel.load("test");
 	}
 
 	MainModel getModel() {

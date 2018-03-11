@@ -84,7 +84,7 @@ public class MainModel {
 		username = uname;
 	}
 
-	public void loadUsername(String uname) {
+	public void load(String uname) {
 		try {
 			PreparedStatement statement = connection.prepareStatement("SELECT * FROM entities WHERE username = ?");
 			statement.setString(1, uname);
