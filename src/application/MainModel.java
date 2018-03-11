@@ -66,8 +66,8 @@ public class MainModel {
 	public Collection<String> getUsernames() {
 		Collection<String> results = new ArrayList<String>();
 		results.add(newEntityLine);
-		try {
-			ResultSet query = connection.prepareStatement("SELECT username FROM entities").executeQuery();
+		String sql = "SELECT username FROM entities";
+		try (ResultSet query = connection.prepareStatement(sql).executeQuery()) {
 			while (query.next()) {
 				results.add(query.getString(1));
 			}
@@ -85,8 +85,8 @@ public class MainModel {
 	}
 
 	public void load(String uname) {
-		try {
-			PreparedStatement statement = connection.prepareStatement("SELECT * FROM entities WHERE username = ?");
+		String sql = "SELECT * FROM entities WHERE username = ?";
+		try (PreparedStatement statement = connection.prepareStatement(sql)) {
 			statement.setString(1, uname);
 			ResultSet query = statement.executeQuery();
 			if (query.next()) {
@@ -108,8 +108,8 @@ public class MainModel {
 	}
 
 	public boolean save() {
-		try {
-			PreparedStatement statement = connection.prepareStatement("INSERT OR REPLACE INTO entities (username, type) VALUES(?, ?)");
+		String sql = "INSERT OR REPLACE INTO entities (username, type) VALUES(?, ?)";
+		try (PreparedStatement statement = connection.prepareStatement(sql)) {
 			statement.setString(1, getUsername());
 			statement.setInt(2, getType().getValue());
 			if (statement.execute())
